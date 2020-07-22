@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "423820395966",
+    "firebase_url": "https://fooddelivery-508e8.firebaseio.com",
+    "project_id": "fooddelivery-508e8",
+    "storage_bucket": "fooddelivery-508e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423820395966:android:5e5a758a380cc54f18e5ef",
+        "android_client_info": {
+          "package_name": "com.dungthinh.food_delivery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423820395966-3e57a3i4fnud4t7hh2ekdg9b9kslb28e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDb1VOppZn3TyXDWDk5UKBpfL_qQRD3efw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423820395966-3e57a3i4fnud4t7hh2ekdg9b9kslb28e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "423820395966-gegfj8pdpnvsprguf5rf5ppscip8b9t0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dungthinh.restaurantRlutterUi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
