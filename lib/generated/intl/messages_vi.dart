@@ -25,7 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("Trong khoảng"),
+        "about": MessageLookupByLibrary.simpleMessage("Chúng tôi"),
         "add": MessageLookupByLibrary.simpleMessage("Thêm vào"),
         "add_delivery_address":
             MessageLookupByLibrary.simpleMessage("Thêm địa chỉ giao hàng"),
@@ -65,7 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clear": MessageLookupByLibrary.simpleMessage("Thông thoáng"),
         "clickOnTheFoodToGetMoreDetailsAboutIt":
             MessageLookupByLibrary.simpleMessage(
-                "Nhấp vào thực phẩm để biết thêm chi tiết về nó"),
+                "Nhấp vào món ăn để biết thêm chi tiết về nó"),
         "clickToPayWithRazorpayMethod": MessageLookupByLibrary.simpleMessage(
             "Nhấp để thanh toán bằng phương thức RazorPay"),
         "click_on_the_stars_below_to_leave_comments":
@@ -105,8 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dark_mode": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
         "default_credit_card":
             MessageLookupByLibrary.simpleMessage("Thẻ tín dụng mặc định"),
-        "deliverable": MessageLookupByLibrary.simpleMessage("Có thể giao được"),
-        "delivery": MessageLookupByLibrary.simpleMessage("Chuyển"),
+        "deliverable": MessageLookupByLibrary.simpleMessage("Có thể giao hàng"),
+        "delivery": MessageLookupByLibrary.simpleMessage("Giao hàng"),
         "deliveryAddressOutsideTheDeliveryRangeOfThisRestaurants":
             MessageLookupByLibrary.simpleMessage(
                 "Địa chỉ giao hàng ngoài phạm vi giao hàng của nhà hàng này."),
@@ -133,19 +133,19 @@ class MessageLookup extends MessageLookupByLibrary {
             "Không có bất kỳ mục nào trong giỏ hàng của bạn"),
         "double_click_on_the_food_to_add_it_to_the":
             MessageLookupByLibrary.simpleMessage(
-                "Nhấp đúp chuột vào thực phẩm để thêm nó vào giỏ hàng"),
+                "Nhấp đúp chuột vào món ăn để thêm nó vào giỏ hàng"),
         "edit": MessageLookupByLibrary.simpleMessage("Biên tập"),
         "email": MessageLookupByLibrary.simpleMessage("E-mail"),
         "email_address":
             MessageLookupByLibrary.simpleMessage("Địa chỉ email"),
         "email_to_reset_password":
             MessageLookupByLibrary.simpleMessage("Email để đặt lại mật khẩu"),
-        "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
+        "english": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "error_verify_email_settings":
             MessageLookupByLibrary.simpleMessage("Lỗi! Xác minh cài đặt email"),
         "exp_date": MessageLookupByLibrary.simpleMessage("Ngày hết hạn"),
         "expiry_date": MessageLookupByLibrary.simpleMessage("NGÀY HẾT HẠN"),
-        "extras": MessageLookupByLibrary.simpleMessage("Ngoài ra"),
+        "extras": MessageLookupByLibrary.simpleMessage("Bổ sung"),
         "faq": MessageLookupByLibrary.simpleMessage("Pháp"),
         "faqsRefreshedSuccessfuly": MessageLookupByLibrary.simpleMessage(
             "Faqs được làm mới thành công"),
@@ -155,21 +155,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "favorites_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
             "Yêu thích được làm mới thành công"),
         "featured_foods":
-            MessageLookupByLibrary.simpleMessage("Thực phẩm nổi bật"),
+            MessageLookupByLibrary.simpleMessage("Món ăn nổi bật"),
         "fields": MessageLookupByLibrary.simpleMessage("Lĩnh vực"),
         "filter": MessageLookupByLibrary.simpleMessage("Bộ lọc"),
         "foodRefreshedSuccessfuly": MessageLookupByLibrary.simpleMessage(
-            "Thực phẩm được làm mới thành công"),
+            "Món ăn được làm mới thành công"),
         "food_categories":
-            MessageLookupByLibrary.simpleMessage("Danh mục thực phẩm"),
-        "foods_result":
-            MessageLookupByLibrary.simpleMessage("Kết quả thực phẩm"),
-        "foods_results":
-            MessageLookupByLibrary.simpleMessage("Kết quả thực phẩm"),
+            MessageLookupByLibrary.simpleMessage("Danh mục món ăn"),
+        "foods_result": MessageLookupByLibrary.simpleMessage("Kết quả món ăn"),
+        "foods_results": MessageLookupByLibrary.simpleMessage("Kết quả món ăn"),
         "full_address": MessageLookupByLibrary.simpleMessage("Địa chỉ đầy đủ"),
         "full_name": MessageLookupByLibrary.simpleMessage("Họ và tên"),
         "g": MessageLookupByLibrary.simpleMessage("g"),
-        "guest": MessageLookupByLibrary.simpleMessage("Khách mời"),
+        "guest": MessageLookupByLibrary.simpleMessage("Khách hàng"),
         "help__support":
             MessageLookupByLibrary.simpleMessage("Trợ giúp & Hỗ trợ"),
         "help_support":
@@ -216,7 +214,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Nhấn và giữ để chỉnh sửa mục, vuốt mục để xóa nó"),
         "longpress_on_the_food_to_add_suplements":
             MessageLookupByLibrary.simpleMessage(
-                "Longpress trên thực phẩm để thêm suplements"),
+                "Longpress trên món ăn để thêm suplements"),
         "maps_explorer":
             MessageLookupByLibrary.simpleMessage("Bản đồ thám hiểm"),
         "mastercard": MessageLookupByLibrary.simpleMessage("MasterCard"),
@@ -250,7 +248,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_a_valid_phone": MessageLookupByLibrary.simpleMessage(
             "Không phải điện thoại hợp lệ"),
         "not_deliverable":
-            MessageLookupByLibrary.simpleMessage("Không thể giao được"),
+            MessageLookupByLibrary.simpleMessage("Không giao hàng"),
         "notifications": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "notifications_refreshed_successfuly":
             MessageLookupByLibrary.simpleMessage(
@@ -259,8 +257,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "nutrition": MessageLookupByLibrary.simpleMessage("Dinh dưỡng"),
         "oneOrMoreFoodsInYourCartNotDeliverable":
             MessageLookupByLibrary.simpleMessage(
-                "Một hoặc nhiều thực phẩm trong giỏ hàng của bạn không thể cung cấp."),
-        "open": MessageLookupByLibrary.simpleMessage("Mở"),
+                "Một hoặc nhiều món ăn trong giỏ hàng của bạn không thể cung cấp."),
+        "open": MessageLookupByLibrary.simpleMessage("Tham quan"),
         "opened_restaurants":
             MessageLookupByLibrary.simpleMessage("Nhà hàng đã mở"),
         "or_checkout_with":
@@ -298,17 +296,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "paypal_payment":
             MessageLookupByLibrary.simpleMessage("Thanh toán Paypal"),
         "phone": MessageLookupByLibrary.simpleMessage("Điện thoại"),
-        "pickup": MessageLookupByLibrary.simpleMessage("Nhặt lên"),
+        "pickup": MessageLookupByLibrary.simpleMessage("Không giao hàng"),
         "pickup_your_food_from_the_restaurant":
             MessageLookupByLibrary.simpleMessage(
-                "Nhận thức ăn của bạn từ nhà hàng"),
+                "Chọn món ăn của bạn từ nhà hàng"),
         "profile": MessageLookupByLibrary.simpleMessage("Hồ sơ"),
         "profile_settings":
             MessageLookupByLibrary.simpleMessage("Cài đặt cấu hình"),
         "profile_settings_updated_successfully":
             MessageLookupByLibrary.simpleMessage(
                 "Cài đặt hồ sơ được cập nhật thành công"),
-        "quantity": MessageLookupByLibrary.simpleMessage("Định lượng"),
+        "quantity": MessageLookupByLibrary.simpleMessage("Số lượng"),
         "razorpay": MessageLookupByLibrary.simpleMessage("RazorPay"),
         "razorpayPayment":
             MessageLookupByLibrary.simpleMessage("Thanh toán bằng dao cạo"),
@@ -336,13 +334,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Nhận xét"),
         "reviews_refreshed_successfully": MessageLookupByLibrary.simpleMessage(
             "Đánh giá được làm mới thành công!"),
-        "save": MessageLookupByLibrary.simpleMessage("Tiết kiệm"),
+        "save": MessageLookupByLibrary.simpleMessage("Lưu"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "search_for_restaurants_or_foods": MessageLookupByLibrary.simpleMessage(
-            "Tìm kiếm nhà hàng hoặc thực phẩm"),
+            "Tìm kiếm nhà hàng hoặc món ăn"),
         "select_extras_to_add_them_on_the_food":
             MessageLookupByLibrary.simpleMessage(
-                "Chọn tính năng bổ sung để thêm chúng vào thức ăn"),
+                "Chọn thêm món bổ sung (nếu có)"),
         "select_your_preferred_languages": MessageLookupByLibrary.simpleMessage(
             "Chọn ngôn ngữ ưa thích của bạn"),
         "select_your_preferred_payment_mode":
@@ -368,7 +366,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "subtotal": MessageLookupByLibrary.simpleMessage("Tổng phụ"),
         "tax": MessageLookupByLibrary.simpleMessage("THUẾ"),
         "tell_us_about_this_food": MessageLookupByLibrary.simpleMessage(
-            "Hãy cho chúng tôi về thực phẩm này"),
+            "Hãy cho chúng tôi về món ăn này"),
         "tell_us_about_this_restaurant": MessageLookupByLibrary.simpleMessage(
             "Hãy cho chúng tôi về nhà hàng này"),
         "the_address_updated_successfully":
@@ -382,9 +380,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Nhà hàng đã được đánh giá thành công"),
         "thisFoodWasAddedToFavorite": MessageLookupByLibrary.simpleMessage(
-            "Thực phẩm này đã được thêm vào yêu thích"),
+            "Món ăn này đã được thêm vào yêu thích"),
         "thisFoodWasRemovedFromFavorites": MessageLookupByLibrary.simpleMessage(
-            "Thực phẩm này đã được loại bỏ khỏi yêu thích"),
+            "Món ăn này đã được loại bỏ khỏi yêu thích"),
         "thisRestaurantNotSupportDeliveryMethod":
             MessageLookupByLibrary.simpleMessage(
                 "Nhà hàng này không hỗ trợ phương thức giao hàng."),
@@ -393,7 +391,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "this_email_account_exists":
             MessageLookupByLibrary.simpleMessage("Tài khoản email này tồn tại"),
         "this_food_was_added_to_cart": MessageLookupByLibrary.simpleMessage(
-            "Thực phẩm này đã được thêm vào giỏ hàng"),
+            "Món ăn này đã được thêm vào giỏ hàng"),
         "this_restaurant_is_closed_":
             MessageLookupByLibrary.simpleMessage("Nhà hàng này đã đóng cửa!"),
         "top_restaurants":
@@ -427,7 +425,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bạn có thể khám phá các nhà hàng & đồ ăn nhanh cho bạn và chọn cho bạn bữa ăn ngon nhất sau vài phút chúng tôi chuẩn bị và giao nó cho bạn"),
         "you_must_add_foods_of_the_same_restaurants_choose_one":
             MessageLookupByLibrary.simpleMessage(
-                "Bạn phải thêm thực phẩm của cùng một nhà hàng chỉ chọn một nhà hàng!"),
+                "Bạn phải thêm món ăn của cùng một nhà hàng chỉ chọn một nhà hàng!"),
         "you_must_signin_to_access_to_this_section":
             MessageLookupByLibrary.simpleMessage(
                 "Bạn phải đăng nhập để truy cập vào phần này"),

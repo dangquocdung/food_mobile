@@ -25,8 +25,6 @@ class LanguagesList {
       new Language("fr", "French (Canada)", "Français - Canadien",
           "assets/img/canada.png"),
       new Language("pt", "Brazilian", "Brazilian", "assets/img/brazil.png"),
-      new Language(
-          "ko", "Korean", "Korean", "assets/img/united-states-of-america.png"),
     ];
   }
 

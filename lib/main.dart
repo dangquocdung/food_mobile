@@ -10,11 +10,16 @@ import 'src/models/setting.dart';
 import 'src/repository/settings_repository.dart' as settingRepo;
 import 'src/repository/user_repository.dart' as userRepo;
 
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GlobalConfiguration().loadFromAsset("configurations");
-  print(CustomTrace(StackTrace.current, message: "base_url: ${GlobalConfiguration().getString('base_url')}"));
-  print(CustomTrace(StackTrace.current, message: "api_base_url: ${GlobalConfiguration().getString('api_base_url')}"));
+  print(CustomTrace(StackTrace.current,
+      message: "base_url: ${GlobalConfiguration().getString('base_url')}"));
+  print(CustomTrace(StackTrace.current,
+      message:
+          "api_base_url: ${GlobalConfiguration().getString('api_base_url')}"));
   runApp(MyApp());
 }
 
@@ -24,12 +29,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   @override
   void initState() {
     settingRepo.initSettings();
     settingRepo.getCurrentLocation();
     userRepo.getCurrentUser();
     super.initState();
+
+    _firebaseMessaging.getToken().then((token) {
+      assert(token != null);
+      print("Push Messaging token: $token");
+    });
   }
 
   @override
@@ -37,7 +49,8 @@ class _MyAppState extends State<MyApp> {
     return ValueListenableBuilder(
         valueListenable: settingRepo.setting,
         builder: (context, Setting _setting, _) {
-          print(CustomTrace(StackTrace.current, message: _setting.toMap().toString()));
+          print(CustomTrace(StackTrace.current,
+              message: _setting.toMap().toString()));
           return MaterialApp(
               navigatorKey: settingRepo.navigatorKey,
               title: _setting.appName,
@@ -55,23 +68,60 @@ class _MyAppState extends State<MyApp> {
                   ? ThemeData(
                       fontFamily: 'Poppins',
                       primaryColor: Colors.white,
-                      floatingActionButtonTheme: FloatingActionButtonThemeData(elevation: 0, foregroundColor: Colors.white),
+                      floatingActionButtonTheme: FloatingActionButtonThemeData(
+                          elevation: 0, foregroundColor: Colors.white),
                       brightness: Brightness.light,
                       accentColor: config.Colors().mainColor(1),
                       dividerColor: config.Colors().accentColor(0.1),
                       focusColor: config.Colors().accentColor(1),
                       hintColor: config.Colors().secondColor(1),
                       textTheme: TextTheme(
-                        headline5: TextStyle(fontSize: 20.0, color: config.Colors().secondColor(1), height: 1.35),
-                        headline4: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: config.Colors().secondColor(1), height: 1.35),
-                        headline3: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: config.Colors().secondColor(1), height: 1.35),
-                        headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700, color: config.Colors().mainColor(1), height: 1.35),
-                        headline1: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w300, color: config.Colors().secondColor(1), height: 1.5),
-                        subtitle1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: config.Colors().secondColor(1), height: 1.35),
-                        headline6: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: config.Colors().mainColor(1), height: 1.35),
-                        bodyText2: TextStyle(fontSize: 12.0, color: config.Colors().secondColor(1), height: 1.35),
-                        bodyText1: TextStyle(fontSize: 14.0, color: config.Colors().secondColor(1), height: 1.35),
-                        caption: TextStyle(fontSize: 12.0, color: config.Colors().accentColor(1), height: 1.35),
+                        headline5: TextStyle(
+                            fontSize: 20.0,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        headline4: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        headline3: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        headline2: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w700,
+                            color: config.Colors().mainColor(1),
+                            height: 1.35),
+                        headline1: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w300,
+                            color: config.Colors().secondColor(1),
+                            height: 1.5),
+                        subtitle1: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w500,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        headline6: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().mainColor(1),
+                            height: 1.35),
+                        bodyText2: TextStyle(
+                            fontSize: 12.0,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        bodyText1: TextStyle(
+                            fontSize: 14.0,
+                            color: config.Colors().secondColor(1),
+                            height: 1.35),
+                        caption: TextStyle(
+                            fontSize: 12.0,
+                            color: config.Colors().accentColor(1),
+                            height: 1.35),
                       ),
                     )
                   : ThemeData(
@@ -84,16 +134,52 @@ class _MyAppState extends State<MyApp> {
                       hintColor: config.Colors().secondDarkColor(1),
                       focusColor: config.Colors().accentDarkColor(1),
                       textTheme: TextTheme(
-                        headline5: TextStyle(fontSize: 20.0, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        headline4: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        headline3: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        headline2: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w700, color: config.Colors().mainDarkColor(1), height: 1.35),
-                        headline1: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w300, color: config.Colors().secondDarkColor(1), height: 1.5),
-                        subtitle1: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w500, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        headline6: TextStyle(fontSize: 16.0, fontWeight: FontWeight.w600, color: config.Colors().mainDarkColor(1), height: 1.35),
-                        bodyText2: TextStyle(fontSize: 12.0, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        bodyText1: TextStyle(fontSize: 14.0, color: config.Colors().secondDarkColor(1), height: 1.35),
-                        caption: TextStyle(fontSize: 12.0, color: config.Colors().secondDarkColor(0.6), height: 1.35),
+                        headline5: TextStyle(
+                            fontSize: 20.0,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        headline4: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        headline3: TextStyle(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        headline2: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w700,
+                            color: config.Colors().mainDarkColor(1),
+                            height: 1.35),
+                        headline1: TextStyle(
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.w300,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.5),
+                        subtitle1: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.w500,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        headline6: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                            color: config.Colors().mainDarkColor(1),
+                            height: 1.35),
+                        bodyText2: TextStyle(
+                            fontSize: 12.0,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        bodyText1: TextStyle(
+                            fontSize: 14.0,
+                            color: config.Colors().secondDarkColor(1),
+                            height: 1.35),
+                        caption: TextStyle(
+                            fontSize: 12.0,
+                            color: config.Colors().secondDarkColor(0.6),
+                            height: 1.35),
                       ),
                     ));
         });
