@@ -10,3 +10,4 @@ export "FLUTTER_FRAMEWORK_DIR=/Users/quocdungdang/flutter/flutter/bin/cache/arti
 export "FLUTTER_BUILD_NAME=2.2.0"
 export "FLUTTER_BUILD_NUMBER=2.2.0"
 export "TRACK_WIDGET_CREATION=true"
+export "DART_DEFINES=flutter.inspector.structuredErrors=true"
