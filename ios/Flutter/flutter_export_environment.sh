@@ -1,12 +1,11 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/Users/quocdungdang/flutter/flutter"
-export "FLUTTER_APPLICATION_PATH=/Users/quocdungdang/Project/food_mobile"
-export "FLUTTER_TARGET=/Users/quocdungdang/Project/food_mobile/lib/main.dart"
+export "FLUTTER_ROOT=D:\flutter"
+export "FLUTTER_APPLICATION_PATH=D:\dev_project\codecanyon-TXVEgfhN-multi-restaurants-flutter-php-laravel-admin-panel\food_mobile"
+export "FLUTTER_TARGET=lib\main.dart"
 export "FLUTTER_BUILD_DIR=build"
-export "SYMROOT=${SOURCE_ROOT}/../build/ios"
+export "SYMROOT=${SOURCE_ROOT}/../build\ios"
 export "OTHER_LDFLAGS=$(inherited) -framework Flutter"
-export "FLUTTER_FRAMEWORK_DIR=/Users/quocdungdang/flutter/flutter/bin/cache/artifacts/engine/ios"
+export "FLUTTER_FRAMEWORK_DIR=D:\flutter\bin\cache\artifacts\engine\ios"
 export "FLUTTER_BUILD_NAME=2.2.0"
 export "FLUTTER_BUILD_NUMBER=2.2.0"
-export "TRACK_WIDGET_CREATION=true"
