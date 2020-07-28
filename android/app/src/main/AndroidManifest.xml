@@ -13,7 +13,8 @@
     <application
         android:name=".Application"
         android:label="Món Ngon"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
                    android:value="AIzaSyAaECxmdzvds9oziirB2XIJr4hcX_25npI"/>
