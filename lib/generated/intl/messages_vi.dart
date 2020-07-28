@@ -19,9 +19,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'vi';
 
-  static m1(id) => "Order: #${id} has been canceled";
+  static m1(id) => "Đơn hàng #${id} đã bị hủy";
 
-  static m0(foodname) => "The ${foodname} was removed from your cart";
+  static m0(foodname) => "Món ${foodname} đã được bỏ ra khỏi giỏ hàng";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function>{
@@ -53,15 +53,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancelOrder": MessageLookupByLibrary.simpleMessage("Hủy đơn hàng"),
         "canceled": MessageLookupByLibrary.simpleMessage("Đã hủy"),
         "card_number": MessageLookupByLibrary.simpleMessage("SỐ THẺ"),
-        "cart": MessageLookupByLibrary.simpleMessage("Xe đẩy"),
-        "carts_refreshed_successfuly":
-            MessageLookupByLibrary.simpleMessage("Xe được làm mới thành công"),
+        "cart": MessageLookupByLibrary.simpleMessage("Giỏ hàng"),
+        "carts_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
+            "Giỏ hàng được làm mới thành công"),
         "cash_on_delivery":
             MessageLookupByLibrary.simpleMessage("Thanh toán khi giao hàng"),
         "category": MessageLookupByLibrary.simpleMessage("Thể loại"),
         "category_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
             "Danh mục được làm mới thành công"),
-        "checkout": MessageLookupByLibrary.simpleMessage("Thủ tục thanh toán"),
+        "checkout": MessageLookupByLibrary.simpleMessage("Thanh toán"),
         "clear": MessageLookupByLibrary.simpleMessage("Thông thoáng"),
         "clickOnTheFoodToGetMoreDetailsAboutIt":
             MessageLookupByLibrary.simpleMessage(
@@ -122,10 +122,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "delivery_fee": MessageLookupByLibrary.simpleMessage("Phí giao hàng"),
         "delivery_or_pickup":
             MessageLookupByLibrary.simpleMessage("Giao hàng hoặc nhận hàng"),
-        "description": MessageLookupByLibrary.simpleMessage("Sự miêu tả"),
+        "description": MessageLookupByLibrary.simpleMessage("Tên địa điểm"),
         "details": MessageLookupByLibrary.simpleMessage("Chi tiết"),
-        "discover__explorer":
-            MessageLookupByLibrary.simpleMessage("Khám phá & thám hiểm"),
+        "discover__explorer": MessageLookupByLibrary.simpleMessage("Khám phá"),
         "dont_have_any_item_in_the_notification_list":
             MessageLookupByLibrary.simpleMessage(
                 "Không có mục nào trong danh sách thông báo"),
@@ -149,8 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "faq": MessageLookupByLibrary.simpleMessage("Pháp"),
         "faqsRefreshedSuccessfuly": MessageLookupByLibrary.simpleMessage(
             "Faqs được làm mới thành công"),
-        "favorite_foods":
-            MessageLookupByLibrary.simpleMessage("Món ăn yêu thích"),
+        "favorite_foods": MessageLookupByLibrary.simpleMessage("Món yêu thích"),
         "favorites": MessageLookupByLibrary.simpleMessage("Yêu thích"),
         "favorites_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
             "Yêu thích được làm mới thành công"),
@@ -215,12 +213,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "longpress_on_the_food_to_add_suplements":
             MessageLookupByLibrary.simpleMessage(
                 "Longpress trên món ăn để thêm suplements"),
-        "maps_explorer":
-            MessageLookupByLibrary.simpleMessage("Bản đồ thám hiểm"),
+        "maps_explorer": MessageLookupByLibrary.simpleMessage("Bản đồ"),
         "mastercard": MessageLookupByLibrary.simpleMessage("MasterCard"),
         "menu": MessageLookupByLibrary.simpleMessage("Thực đơn"),
         "mi": MessageLookupByLibrary.simpleMessage("mi"),
-        "most_popular": MessageLookupByLibrary.simpleMessage("Phổ biến nhất"),
+        "most_popular":
+            MessageLookupByLibrary.simpleMessage("Nhà hàng nổi bật"),
         "multirestaurants":
             MessageLookupByLibrary.simpleMessage("Multi-Restaurants"),
         "my_orders": MessageLookupByLibrary.simpleMessage("Đơn hàng của tôi"),
@@ -248,7 +246,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "not_a_valid_phone": MessageLookupByLibrary.simpleMessage(
             "Không phải điện thoại hợp lệ"),
         "not_deliverable":
-            MessageLookupByLibrary.simpleMessage("Không giao hàng"),
+            MessageLookupByLibrary.simpleMessage("Đến nhận hàng"),
         "notifications": MessageLookupByLibrary.simpleMessage("Thông báo"),
         "notifications_refreshed_successfuly":
             MessageLookupByLibrary.simpleMessage(
@@ -263,12 +261,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nhà hàng đã mở"),
         "or_checkout_with":
             MessageLookupByLibrary.simpleMessage("Hoặc thanh toán với"),
-        "order": MessageLookupByLibrary.simpleMessage("Đặt hàng"),
+        "order": MessageLookupByLibrary.simpleMessage("Đơn hàng"),
         "orderDetails":
-            MessageLookupByLibrary.simpleMessage("Chi tiết đặt hàng"),
-        "order_id": MessageLookupByLibrary.simpleMessage("Id đơn hàng"),
+            MessageLookupByLibrary.simpleMessage("Chi tiết đơn hàng"),
+        "order_id": MessageLookupByLibrary.simpleMessage("Đơn hàng"),
         "order_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
-            "Đặt hàng được làm mới thành công"),
+            "Đơn hàng được làm mới thành công"),
         "order_status_changed": MessageLookupByLibrary.simpleMessage(
             "Trạng thái đơn hàng đã thay đổi"),
         "ordered_by_nearby_first":
@@ -277,7 +275,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Đơn hàng được làm mới thành công"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "pay_on_pickup":
-            MessageLookupByLibrary.simpleMessage("Trả tiền khi mua hàng"),
+            MessageLookupByLibrary.simpleMessage("Trả tiền khi nhận hàng"),
         "payment_card_updated_successfully":
             MessageLookupByLibrary.simpleMessage(
                 "Thẻ thanh toán được cập nhật thành công"),
@@ -363,7 +361,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "start_exploring":
             MessageLookupByLibrary.simpleMessage("Bắt đầu khám phá"),
         "submit": MessageLookupByLibrary.simpleMessage("Gửi đi"),
-        "subtotal": MessageLookupByLibrary.simpleMessage("Tổng phụ"),
+        "subtotal": MessageLookupByLibrary.simpleMessage("Tổng cộng"),
         "tax": MessageLookupByLibrary.simpleMessage("THUẾ"),
         "tell_us_about_this_food": MessageLookupByLibrary.simpleMessage(
             "Hãy cho chúng tôi về món ăn này"),
@@ -395,10 +393,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "this_restaurant_is_closed_":
             MessageLookupByLibrary.simpleMessage("Nhà hàng này đã đóng cửa!"),
         "top_restaurants":
-            MessageLookupByLibrary.simpleMessage("Nhà hàng nổi bật"),
+            MessageLookupByLibrary.simpleMessage("Nhà hàng gần đây"),
         "total": MessageLookupByLibrary.simpleMessage("Toàn bộ"),
         "tracking_order":
-            MessageLookupByLibrary.simpleMessage("Theo dõi thứ tự"),
+            MessageLookupByLibrary.simpleMessage("Theo dõi đơn hàng"),
         "tracking_refreshed_successfuly": MessageLookupByLibrary.simpleMessage(
             "Theo dõi được làm mới thành công"),
         "trending_this_week":
@@ -411,7 +409,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Xác nhận số lượng của bạn và nhấp vào thanh toán"),
         "version": MessageLookupByLibrary.simpleMessage("Phiên bản"),
-        "view": MessageLookupByLibrary.simpleMessage("Lượt xem"),
+        "view": MessageLookupByLibrary.simpleMessage("Chi tiết"),
         "viewDetails": MessageLookupByLibrary.simpleMessage("Xem chi tiết"),
         "visa_card": MessageLookupByLibrary.simpleMessage("Thẻ Visa"),
         "welcome": MessageLookupByLibrary.simpleMessage("Chào mừng bạn"),
