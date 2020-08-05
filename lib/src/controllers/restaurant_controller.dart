@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mvc_pattern/mvc_pattern.dart';
 
 import '../../generated/l10n.dart';
+import '../models/category.dart';
 import '../models/food.dart';
 import '../models/gallery.dart';
 import '../models/restaurant.dart';
 import '../models/review.dart';
+import '../repository/category_repository.dart';
 import '../repository/food_repository.dart';
 import '../repository/gallery_repository.dart';
 import '../repository/restaurant_repository.dart';
@@ -15,6 +17,7 @@ class RestaurantController extends ControllerMVC {
   Restaurant restaurant;
   List<Gallery> galleries = <Gallery>[];
   List<Food> foods = <Food>[];
+  List<Category> categories = <Category>[];
   List<Food> trendingFoods = <Food>[];
   List<Food> featuredFoods = <Food>[];
   List<Review> reviews = <Review>[];
@@ -56,13 +59,15 @@ class RestaurantController extends ControllerMVC {
     }, onError: (a) {}, onDone: () {});
   }
 
-  void listenForFoods(String idRestaurant) async {
-    final Stream<Food> stream = await getFoodsOfRestaurant(idRestaurant);
+  void listenForFoods(String idRestaurant, {List<String> categoriesId}) async {
+    final Stream<Food> stream = await getFoodsOfRestaurant(idRestaurant, categories: categoriesId);
     stream.listen((Food _food) {
       setState(() => foods.add(_food));
     }, onError: (a) {
       print(a);
-    }, onDone: () {});
+    }, onDone: () {
+      restaurant..name = foods.elementAt(0).restaurant.name;
+    });
   }
 
   void listenForTrendingFoods(String idRestaurant) async {
@@ -81,6 +86,22 @@ class RestaurantController extends ControllerMVC {
     }, onError: (a) {
       print(a);
     }, onDone: () {});
+  }
+
+  Future<void> listenForCategories() async {
+    final Stream<Category> stream = await getCategories();
+    stream.listen((Category _category) {
+      setState(() => categories.add(_category));
+    }, onError: (a) {
+      print(a);
+    }, onDone: () {
+      categories.insert(0, new Category.fromJSON({'id': '0', 'name': S.of(context).all}));
+    });
+  }
+
+  Future<void> selectCategory(List<String> categoriesId) async {
+    foods.clear();
+    listenForFoods(restaurant.id, categoriesId: categoriesId);
   }
 
   Future<void> refreshRestaurant() async {

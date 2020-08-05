@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:html/parser.dart';
@@ -24,6 +25,7 @@ import 'custom_trace.dart';
 
 class Helper {
   BuildContext context;
+  DateTime currentBackPressTime;
 
   Helper.of(BuildContext _context) {
     this.context = _context;
@@ -36,6 +38,10 @@ class Helper {
 
   static int getIntData(Map<String, dynamic> data) {
     return (data['data'] as int) ?? 0;
+  }
+
+  static double getDoubleData(Map<String, dynamic> data) {
+    return (data['data'] as double) ?? 0;
   }
 
   static bool getBoolData(Map<String, dynamic> data) {
@@ -181,6 +187,7 @@ class Helper {
     bool _can = true;
     String _unit = setting.value.distanceUnit;
     double _deliveryRange = _restaurant.deliveryRange;
+    double _distance = _restaurant.distance;
     carts?.forEach((Cart _cart) {
       _can &= _cart.food.deliverable;
     });
@@ -188,7 +195,11 @@ class Helper {
     if (_unit == 'km') {
       _deliveryRange /= 1.60934;
     }
-    _can &= _restaurant.availableForDelivery && (_restaurant.distance <= _deliveryRange) && !deliveryAddress.value.isUnknown();
+    if (_distance == 0 && !deliveryAddress.value.isUnknown()) {
+      _distance = sqrt(pow(69.1 * (double.parse(_restaurant.latitude) - deliveryAddress.value.latitude), 2) +
+          pow(69.1 * (deliveryAddress.value.longitude - double.parse(_restaurant.longitude)) * cos(double.parse(_restaurant.latitude) / 57.3), 2));
+    }
+    _can &= _restaurant.availableForDelivery && (_distance < _deliveryRange) && !deliveryAddress.value.isUnknown();
     return _can;
   }
 
@@ -281,6 +292,17 @@ class Helper {
         port: Uri.parse(GlobalConfiguration().getString('base_url')).port,
         path: _path + path);
     return uri;
+  }
+
+  Future<bool> onWillPop() {
+    DateTime now = DateTime.now();
+    if (currentBackPressTime == null || now.difference(currentBackPressTime) > Duration(seconds: 2)) {
+      currentBackPressTime = now;
+      Fluttertoast.showToast(msg: S.of(context).tapAgainToLeave);
+      return Future.value(false);
+    }
+    SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+    return Future.value(true);
   }
 
   String trans(String text) {

@@ -94,6 +94,13 @@ class Food {
     return map;
   }
 
+  double getRate() {
+    double _rate = 0;
+    foodReviews.forEach((e) => _rate += double.parse(e.rate));
+    _rate = _rate > 0 ? (_rate / foodReviews.length) : 0;
+    return _rate;
+  }
+
   @override
   bool operator ==(dynamic other) {
     return other.id == this.id;

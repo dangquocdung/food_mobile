@@ -81,7 +81,7 @@ class _DetailsWidgetState extends StateMVC<DetailsWidget> {
                           flexibleSpace: FlexibleSpaceBar(
                             collapseMode: CollapseMode.parallax,
                             background: Hero(
-                              tag: widget.routeArgument.heroTag + _con.restaurant.id,
+                              tag: (widget?.routeArgument?.heroTag ?? '') + _con.restaurant.id,
                               child: CachedNetworkImage(
                                 fit: BoxFit.cover,
                                 imageUrl: _con.restaurant.image.url,
@@ -152,20 +152,6 @@ class _DetailsWidgetState extends StateMVC<DetailsWidget> {
                                           ),
                                   ),
                                   SizedBox(width: 10),
-                                  Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 3),
-                                    decoration: BoxDecoration(
-                                        color: Helper.canDelivery(_con.restaurant) ? Colors.green : Colors.orange, borderRadius: BorderRadius.circular(24)),
-                                    child: Helper.canDelivery(_con.restaurant)
-                                        ? Text(
-                                            S.of(context).delivery,
-                                            style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
-                                          )
-                                        : Text(
-                                            S.of(context).pickup,
-                                            style: Theme.of(context).textTheme.caption.merge(TextStyle(color: Theme.of(context).primaryColor)),
-                                          ),
-                                  ),
                                   Expanded(child: SizedBox(height: 0)),
                                   Container(
                                     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 3),

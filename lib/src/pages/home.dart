@@ -130,7 +130,8 @@ class _HomeWidgetState extends StateMVC<HomeWidget> {
                 ),
                 subtitle: Text(
                   S.of(context).clickOnTheFoodToGetMoreDetailsAboutIt,
-                  style: Theme.of(context).textTheme.caption.merge(TextStyle(fontSize: 11)),
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.caption,
                 ),
               ),
               FoodsCarouselWidget(foodsList: _con.trendingFoods, heroTag: 'home_food_carousel'),

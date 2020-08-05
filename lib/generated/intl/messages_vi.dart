@@ -90,7 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "email" : MessageLookupByLibrary.simpleMessage("Email"),
     "email_address" : MessageLookupByLibrary.simpleMessage("Email Address"),
     "email_to_reset_password" : MessageLookupByLibrary.simpleMessage("Email to reset password"),
-    "english" : MessageLookupByLibrary.simpleMessage("English"),
+    "english" : MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
     "error_verify_email_settings" : MessageLookupByLibrary.simpleMessage("Error! Verify email settings"),
     "exp_date" : MessageLookupByLibrary.simpleMessage("Exp Date"),
     "expiry_date" : MessageLookupByLibrary.simpleMessage("EXPIRY DATE"),

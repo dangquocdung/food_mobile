@@ -236,5 +236,6 @@
   "clickOnTheFoodToGetMoreDetailsAboutIt": "Click on the food to get more details about it",
   "razorpayPayment": "RazorPay Payment",
   "razorpay": "RazorPay",
-  "clickToPayWithRazorpayMethod": "Click to pay with RazorPay method"
+  "clickToPayWithRazorpayMethod": "Click to pay with RazorPay method",
+  "tapAgainToLeave": "Tap again to leave"
 }

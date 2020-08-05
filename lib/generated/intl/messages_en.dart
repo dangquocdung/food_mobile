@@ -223,6 +223,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "start_exploring" : MessageLookupByLibrary.simpleMessage("Start Exploring"),
     "submit" : MessageLookupByLibrary.simpleMessage("Submit"),
     "subtotal" : MessageLookupByLibrary.simpleMessage("Subtotal"),
+    "tapAgainToLeave" : MessageLookupByLibrary.simpleMessage("Tap again to leave"),
     "tax" : MessageLookupByLibrary.simpleMessage("TAX"),
     "tell_us_about_this_food" : MessageLookupByLibrary.simpleMessage("Tell us about this food"),
     "tell_us_about_this_restaurant" : MessageLookupByLibrary.simpleMessage("Tell us about this restaurant"),

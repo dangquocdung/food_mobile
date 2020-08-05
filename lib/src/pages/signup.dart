@@ -5,6 +5,7 @@ import '../../generated/l10n.dart';
 import '../controllers/user_controller.dart';
 import '../elements/BlockButtonWidget.dart';
 import '../helpers/app_config.dart' as config;
+import '../helpers/helper.dart';
 
 class SignUpWidget extends StatefulWidget {
   @override
@@ -20,7 +21,7 @@ class _SignUpWidgetState extends StateMVC<SignUpWidget> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: Helper.of(context).onWillPop,
       child: Scaffold(
         key: _con.scaffoldKey,
         resizeToAvoidBottomPadding: false,

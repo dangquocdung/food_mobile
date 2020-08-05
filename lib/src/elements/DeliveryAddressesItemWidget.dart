@@ -60,10 +60,10 @@ class DeliveryAddressesItemWidget extends StatelessWidget {
                   width: 60,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
-                      color: (address?.isDefault ?? false) ? Theme.of(context).accentColor : Theme.of(context).focusColor),
+                      color:
+                          (address?.isDefault ?? false) || (paymentMethod?.selected ?? false) ? Theme.of(context).accentColor : Theme.of(context).focusColor),
                   child: Icon(
-//                    paymentMethod.selected ? Icons.check : Icons.place,
-                    Icons.place,
+                    (paymentMethod?.selected ?? false) ? Icons.check : Icons.place,
                     color: Theme.of(context).primaryColor,
                     size: 38,
                   ),

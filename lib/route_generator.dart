@@ -50,7 +50,7 @@ class RouteGenerator {
       case '/Pages':
         return MaterialPageRoute(builder: (_) => PagesWidget(currentTab: args));
       case '/Details':
-        return MaterialPageRoute(builder: (_) => DetailsWidget(routeArgument: args as RouteArgument));
+        return MaterialPageRoute(builder: (_) => DetailsWidget(routeArgument: args));
       case '/Menu':
         return MaterialPageRoute(builder: (_) => MenuWidget(routeArgument: args as RouteArgument));
       case '/Food':

@@ -82,13 +82,15 @@ class CartController extends ControllerMVC {
   }
 
   void calculateSubtotal() async {
+    double cartPrice = 0;
     subTotal = 0;
     carts.forEach((cart) {
-      subTotal += cart.food.price;
+      cartPrice = cart.food.price;
       cart.extras.forEach((element) {
-        subTotal += element.price;
+        cartPrice += element.price;
       });
-      subTotal *= cart.quantity;
+      cartPrice *= cart.quantity;
+      subTotal += cartPrice;
     });
     if (Helper.canDelivery(carts[0].food.restaurant, carts: carts)) {
       deliveryFee = carts[0].food.restaurant.deliveryFee;

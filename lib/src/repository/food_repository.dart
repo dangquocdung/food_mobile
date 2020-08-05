@@ -194,17 +194,27 @@ Future<Favorite> removeFavorite(Favorite favorite) async {
   }
 }
 
-Future<Stream<Food>> getFoodsOfRestaurant(String restaurantId) async {
-  final String url = '${GlobalConfiguration().getString('api_base_url')}foods?with=restaurant&search=restaurant.id:$restaurantId&searchFields=restaurant.id:=';
+Future<Stream<Food>> getFoodsOfRestaurant(String restaurantId, {List<String> categories}) async {
+  Uri uri = Helper.getUri('api/foods/categories');
+  Map<String, dynamic> query = {
+    'with': 'restaurant;category;extras;foodReviews',
+    'search': 'restaurant_id:$restaurantId',
+    'searchFields': 'restaurant_id:=',
+  };
+
+  if (categories != null && categories.isNotEmpty) {
+    query['categories[]'] = categories;
+  }
+  uri = uri.replace(queryParameters: query);
   try {
     final client = new http.Client();
-    final streamedRest = await client.send(http.Request('get', Uri.parse(url)));
+    final streamedRest = await client.send(http.Request('get', uri));
 
     return streamedRest.stream.transform(utf8.decoder).transform(json.decoder).map((data) => Helper.getData(data)).expand((data) => (data as List)).map((data) {
       return Food.fromJSON(data);
     });
   } catch (e) {
-    print(CustomTrace(StackTrace.current, message: url).toString());
+    print(CustomTrace(StackTrace.current, message: uri.toString()).toString());
     return new Stream.value(new Food.fromJSON({}));
   }
 }
@@ -212,9 +222,10 @@ Future<Stream<Food>> getFoodsOfRestaurant(String restaurantId) async {
 Future<Stream<Food>> getTrendingFoodsOfRestaurant(String restaurantId) async {
   Uri uri = Helper.getUri('api/foods');
   uri = uri.replace(queryParameters: {
-    'with': 'restaurant',
+    'with': 'category;extras;foodReviews',
     'search': 'restaurant_id:$restaurantId;featured:1',
     'searchFields': 'restaurant_id:=;featured:=',
+    'searchJoin': 'and',
   });
   // TODO Trending foods only
   try {
@@ -233,7 +244,7 @@ Future<Stream<Food>> getTrendingFoodsOfRestaurant(String restaurantId) async {
 Future<Stream<Food>> getFeaturedFoodsOfRestaurant(String restaurantId) async {
   Uri uri = Helper.getUri('api/foods');
   uri = uri.replace(queryParameters: {
-    'with': 'restaurant',
+    'with': 'category;extras;foodReviews',
     'search': 'restaurant_id:$restaurantId;featured:1',
     'searchFields': 'restaurant_id:=;featured:=',
     'searchJoin': 'and',

@@ -14,13 +14,8 @@ import 'cart_controller.dart';
 
 class CheckoutController extends CartController {
   Payment payment;
-  double taxAmount = 0.0;
-  double deliveryFee = 0.0;
-  double subTotal = 0.0;
-  double total = 0.0;
   CreditCard creditCard = new CreditCard();
   bool loading = true;
-  GlobalKey<ScaffoldState> scaffoldKey;
 
   CheckoutController() {
     this.scaffoldKey = new GlobalKey<ScaffoldState>();

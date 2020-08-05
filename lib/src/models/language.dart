@@ -5,8 +5,7 @@ class Language {
   String flag;
   bool selected;
 
-  Language(this.code, this.englishName, this.localName, this.flag,
-      {this.selected = false});
+  Language(this.code, this.englishName, this.localName, this.flag, {this.selected = false});
 }
 
 class LanguagesList {
@@ -14,17 +13,8 @@ class LanguagesList {
 
   LanguagesList() {
     this._languages = [
-      new Language("vi", "Tiếng Việt", "Tiếng Việt", "assets/img/vietnam.png"),
-      new Language("en", "English", "English",
-          "assets/img/united-states-of-america.png"),
-      new Language(
-          "ar", "Arabic", "العربية", "assets/img/united-arab-emirates.png"),
-      new Language("es", "Spanish", "Spana", "assets/img/spain.png"),
-      new Language("fr", "French (France)", "Français - France",
-          "assets/img/france.png"),
-      new Language("fr", "French (Canada)", "Français - Canadien",
-          "assets/img/canada.png"),
-      new Language("pt", "Brazilian", "Brazilian", "assets/img/brazil.png"),
+      new Language("vi", "Tiếng Việt", "Việt Nam", "assets/img/vietnam.png"),
+      new Language("en", "English", "English", "assets/img/united-states-of-america.png"),
     ];
   }
 

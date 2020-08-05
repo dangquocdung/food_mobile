@@ -65,8 +65,11 @@ class FoodItemWidget extends StatelessWidget {
                           maxLines: 2,
                           style: Theme.of(context).textTheme.subtitle1,
                         ),
+                        Row(
+                          children: Helper.getStarsList(food.getRate()),
+                        ),
                         Text(
-                          food.restaurant.name,
+                          food.extras.map((e) => e.name).toList().join(', '),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                           style: Theme.of(context).textTheme.caption,
@@ -75,7 +78,20 @@ class FoodItemWidget extends StatelessWidget {
                     ),
                   ),
                   SizedBox(width: 8),
-                  Helper.getPrice(food.price, context, style: Theme.of(context).textTheme.headline4),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Helper.getPrice(
+                        food.price,
+                        context,
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      food.discountPrice > 0
+                          ? Helper.getPrice(food.discountPrice, context,
+                              style: Theme.of(context).textTheme.bodyText2.merge(TextStyle(decoration: TextDecoration.lineThrough)))
+                          : SizedBox(height: 0),
+                    ],
+                  ),
                 ],
               ),
             )

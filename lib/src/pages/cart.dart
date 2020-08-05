@@ -6,6 +6,7 @@ import '../controllers/cart_controller.dart';
 import '../elements/CartBottomDetailsWidget.dart';
 import '../elements/CartItemWidget.dart';
 import '../elements/EmptyCartWidget.dart';
+import '../helpers/helper.dart';
 import '../models/route_argument.dart';
 
 class CartWidget extends StatefulWidget {
@@ -33,7 +34,7 @@ class _CartWidgetState extends StateMVC<CartWidget> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
+      onWillPop: Helper.of(context).onWillPop,
       child: Scaffold(
         key: _con.scaffoldKey,
         bottomNavigationBar: CartBottomDetailsWidget(con: _con),
